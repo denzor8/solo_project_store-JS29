@@ -4,7 +4,7 @@ function Header() {
       <div className="d-flex align-center">
         <img width={40} height={40} src="/img/wb.svg" alt=""/>
         <div>
-          <h3 className="text-uppercase">Файл дерись</h3>
+          <h3 className="text-uppercase">Файл бери</h3>
           <p className="opacity-5">Магазин дешевых товаров</p>
         </div>
       </div>
