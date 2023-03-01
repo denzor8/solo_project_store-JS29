@@ -2,15 +2,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-<<<<<<< HEAD
   background-color: #e7f6ff;
-=======
-
-  display: flex;  
-  justify-content: center;
-
-
->>>>>>> 3b249985364a7768c05b86f81fff31e9a21e4328
 }
 
 * {
@@ -43,54 +35,93 @@ header {
   }
 }
 
-.cartEmpty {
-  text-align: center;
+.card {
+  border: 1px solid #f3f3f3;
+  padding: 30px;
+  width: 220px;
+  border-radius: 40px;
+  margin-right: 30px;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  margin-bottom: 10px;
 
-  p {
-    width: 280px;
-    line-height: 24px;
+  &:hover {
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.06);
+    transform: translateY(-5px);
   }
 
-  .greenButton {
-    width: 245px;
-    margin-top: 20px;
-
-    &:hover {
-      img {
-        transform: rotate(180deg) translateX(3px);
-      }
-    }
-
-    img {
-      position: relative;
-      top: 1px;
-      transform: rotate(180deg);
-      margin-right: 15px;
-      transition: transform 0.15s ease-in-out;
-    }
+  .favorite {
+    position: absolute;
+    cursor: pointer;
   }
+
+  span {
+    font-size: 13px;
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+
+  b {
+    font-size: 14px;
+  }
+
+  h5 {
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+.button {
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
 }
 
 .search-block {
   border: 1px solid #f3f3f3;
   border-radius: 10px;
   padding: 0 15px;
-  position: relative;
-
-  .clear {
-    position: absolute;
-    right: 0;
-    width: 18px;
-    height: 18px;
-    top: 14px;
-    right: 15px;
-  }
 
   input {
     border: 0;
     padding: 13px;
     font-size: 16px;
     width: 200px;
+  }
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 420px;
+  height: 100%;
+  right: 0;
+  background: #ffffff;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+
+  .items {
+    flex: 1;
+    overflow: auto;
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    margin: 0;
   }
 }
 
@@ -104,7 +135,6 @@ header {
       align-items: flex-end;
       margin-bottom: 20px;
 
-<<<<<<< HEAD
       div {
         flex: 1;
         height: 1px;
@@ -118,10 +148,6 @@ header {
 
   .greenButton {
     position: relative;
-
-    &:disabled {
-      animation: button-loading 0.6s ease-in-out infinite;
-    }
 
     &:hover {
       img {
@@ -149,11 +175,6 @@ header {
   font-weight: 500;
   cursor: pointer;
   transition: background 0.1s ease-in-out;
-
-  &:disabled {
-    background-color: #bebebe !important;
-    cursor: default;
-  }
 
   &:hover {
     background: lighten(#9dd558, 5%);
@@ -198,21 +219,3 @@ header {
     }
   }
 }
-
-@keyframes button-loading {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-=======
-
-
-
-}
->>>>>>> 3b249985364a7768c05b86f81fff31e9a21e4328

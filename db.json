@@ -9,6 +9,14 @@
       "id": 1
     },
     {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/1.jpg",
+      "type": "electronics",
+      "id": 160
+    },
+    {
       "name": "MacBook Pro 14",
       "description": "10-ядерный процессор 16-ядерный графический процессор 16-ядерная система Neural Engine 32 ГБ объединённой памяти SSD-накопитель 1 ТБ Дисплей Liquid Retina XDR 14 дюймов Три порта Thunderbolt 4 Порт HDMI Слот для карт SDXC Разъём питания MagSafe 3 Клавиатура Magic Keyboard с Touch ID Трекпад Force Touch Адаптер питания USB-C 96 Вт",
       "price": 3200,

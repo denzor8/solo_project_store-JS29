@@ -1,5 +1,4 @@
 import React from 'react'
-
 const ProductCard = ({ item }) => {
   // console.log(item)
   return (
