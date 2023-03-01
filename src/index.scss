@@ -2,7 +2,15 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+<<<<<<< HEAD
   background-color: #e7f6ff;
+=======
+
+  display: flex;  
+  justify-content: center;
+
+
+>>>>>>> 3b249985364a7768c05b86f81fff31e9a21e4328
 }
 
 * {
@@ -96,6 +104,7 @@ header {
       align-items: flex-end;
       margin-bottom: 20px;
 
+<<<<<<< HEAD
       div {
         flex: 1;
         height: 1px;
@@ -201,3 +210,9 @@ header {
     opacity: 1;
   }
 }
+=======
+
+
+
+}
+>>>>>>> 3b249985364a7768c05b86f81fff31e9a21e4328
