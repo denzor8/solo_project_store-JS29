@@ -22,6 +22,9 @@ function Header() {
                 <NavDropdown.Item href="#action/3.4">
                   Clothes
                 </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4">
+                  Sport
+                </NavDropdown.Item>
               </NavDropdown>
 
             </Nav>
