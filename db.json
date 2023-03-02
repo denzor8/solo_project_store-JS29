@@ -1,13 +1,15 @@
 {
-  "products": [
+  "users": [
     {
-      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "description": "10-96 Вт",
-      "price": 1211,
-      "picture": "/img/sneakers/1.jpg",
-      "type": "sneakers",
-      "id": 160
-    },
+      "username": "vlad",
+      "age": "22",
+      "password": "123456",
+      "isAdmin": true,
+      "id": 4
+    }
+  ],
+
+  "products": [
     {
       "name": "Мужские Кроссовки Nike Blazer Mid Suede",
       "description": "10-96 Вт",
@@ -79,6 +81,14 @@
       "picture": "/img/sneakers/10.jpg",
       "type": "sneakers",
       "id": 169
+    },
+    {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/1.jpg",
+      "type": "sneakers",
+      "id": 170
     },
     {
       "name": "MacBook Pro 16",
