@@ -1,20 +1,92 @@
 {
   "products": [
     {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/1.jpg",
+      "type": "sneakers",
+      "id": 160
+    },
+    {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/2.jpg",
+      "type": "sneakers",
+      "id": 161
+    },
+    {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/3.jpg",
+      "type": "sneakers",
+      "id": 162
+    },
+    {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/4.jpg",
+      "type": "sneakers",
+      "id": 163
+    },
+    {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/5.jpg",
+      "type": "sneakers",
+      "id": 164
+    },
+    {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/6.jpg",
+      "type": "sneakers",
+      "id": 165
+    },
+    {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/7.jpg",
+      "type": "sneakers",
+      "id": 166
+    },
+    {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/8.jpg",
+      "type": "sneakers",
+      "id": 167
+    },
+    {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/9.jpg",
+      "type": "sneakers",
+      "id": 168
+    },
+    {
+      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "description": "10-96 Вт",
+      "price": 1211,
+      "picture": "/img/sneakers/10.jpg",
+      "type": "sneakers",
+      "id": 169
+    },
+    {
       "name": "MacBook Pro 16",
       "description": "10-ядерный процессор 32-ядерный графический процессор 16-ядерная система Neural Engine 64 ГБ объединённой памяти SSD-накопитель 2 ТБ Дисплей Liquid Retina XDR 16 дюймов Три порта Thunderbolt 4 Порт HDMI Слот для карт SDXC Разъём питания MagSafe 3 Клавиатура Magic Keyboard с Touch ID Трекпад Force Touch Адаптер питания USB-C 140 Вт",
       "price": 550,
       "picture": "https://www.istore.kg/media/products/Pro-16-M1-SP-US-1_hZ4eLKK.webp",
       "type": "electronics",
       "id": 1
-    },
-    {
-      "name": "Мужские Кроссовки Nike Blazer Mid Suede",
-      "description": "10-96 Вт",
-      "price": 1211,
-      "picture": "/img/sneakers/1.jpg",
-      "type": "electronics",
-      "id": 160
     },
     {
       "name": "MacBook Pro 14",

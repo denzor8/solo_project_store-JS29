@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useProducts } from '../contexts/ProductContextProvider'
-import ProductCard from './ProductCard'
+import ProductCard from './ProductCard/ProductCard'
 
 const ProductsList = () => {
 	const { products, getProducts } = useProducts()

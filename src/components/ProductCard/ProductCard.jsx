@@ -1,4 +1,5 @@
 import React from 'react'
+import './ProductsCard.scss'
 const ProductCard = ({ item }) => {
   // console.log(item)
   return (
