@@ -2,8 +2,8 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // background-color: #e7f6ff;
-  background-color: #85328c;
+  // background-color: #e7f6ff !important;
+  background-color: #cbc3bd!important;
 }
 
 * {
@@ -19,7 +19,8 @@ body {
 }
 
 header {
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea ;
+  border-radius: 20px;
   img {
     margin-right: 15px;
   }

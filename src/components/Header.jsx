@@ -8,7 +8,7 @@ const Header = () => {
         <div className="d-flex align-center">
           <img width={40} height={40} src="/img/wb.svg" alt="" />
           <div>
-            <h3 className="text-uppercase">Файл беризь</h3>
+            <h3 className="text-uppercase">Файл Деризь?</h3>
             <p className="opacity-5">Магазин дешевых товаров</p>
           </div>
         </div>
@@ -22,6 +22,8 @@ const Header = () => {
           </li>
         </ul>
       </header>
+      {/* postLogic */}
+      <p>POST</p>
       <Navbar />
     </>
 

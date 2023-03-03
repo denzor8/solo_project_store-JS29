@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./style/index.scss";
 import 'macro-css'
-import "./index.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
