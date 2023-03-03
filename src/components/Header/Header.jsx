@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap/';
-import '../style/index.scss'
+import '../../style/index.scss'
 
 const Header = () => {
   return (
@@ -27,6 +27,7 @@ const Header = () => {
       {/* postLogic */}
       <p>POST</p>
       <>
+        {/* content tipa sidebar */}
         <Navbar expand="lg">
           <Container className='mr-50 ml-50'>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
