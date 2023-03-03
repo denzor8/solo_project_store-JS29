@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../../components/Header';
+import Header from '../Header/Header';
 import Basket from '../../components/Basket/Basket';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import axios from 'axios';
-import AuthContextProvider from '../../contexts/AuthContextProvider';
 import { useAuth } from '../../contexts/AuthContextProvider';
 
 function BaseContent() {
