@@ -16,13 +16,6 @@
 		position: absolute;
 		cursor: pointer;
 		transition: all  0.4s ease-in-out;
-    
-		& svg:hover > rect {
-			transition: all 0.4s ease-in-out;
-		}
-		& svg:hover > rect:hover {
-			stroke: rgb(252, 180, 180);
-		}
 		& svg:hover > path {
 			transition: all 0.4s ease-in-out;
 		}
