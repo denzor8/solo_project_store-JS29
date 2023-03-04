@@ -1,5 +1,4 @@
 import React from 'react';
-import MainRoutes from "./MainRoutes";
 import AuthContextProvider from './contexts/AuthContextProvider';
 import BaseContent from './components/BaseContent/BaseContent';
 function App() {
