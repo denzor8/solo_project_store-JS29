@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import BaseContent from "./components/BaseContent/BaseContent";
-import RegistrationPage from "./pages/RegistrationPage";
-import LoginPage from "./pages/LoginPage";
+import RegistrationPage from "./pages//RegistrationPage/RegistrationPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFound from "./pages/NotFound";
 
 const MainRoutes = () => {
