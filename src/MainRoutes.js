@@ -1,8 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import BaseContent from "./components/BaseContent/BaseContent";
 import RegistrationPage from "./pages/RegistrationPage";
 import LoginPage from "./pages/LoginPage";
-import BaseContent from "./components/BaseContent/BaseContent";
+import NotFound from "./pages/NotFound";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -19,6 +20,11 @@ const MainRoutes = () => {
     {
       link: "/",
       element: <BaseContent />,
+      id: 3,
+    },
+    {
+      link: "/*",
+      element: <NotFound />,
       id: 3,
     },
   ];
