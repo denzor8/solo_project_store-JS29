@@ -3,7 +3,7 @@ import Header from '../Header/Header';
 import Basket from '../../components/Basket/Basket';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import axios from 'axios';
-import { useAuth } from '../../contexts/AuthContextProvider';
+import AuthContextProvider, { useAuth } from '../../contexts/AuthContextProvider';
 
 function BaseContent() {
   // product logic
@@ -18,17 +18,19 @@ function BaseContent() {
   }, [])
 
   return (
-    <div className="wrapper clear">
-      <Basket />
-      <Header />
-      <div className="content p-40">
-        <div className="d-flex flex-wrap">
-          {products.map(item => (
-            <ProductCard key={item.id} item={item} />
-          ))}
+    <AuthContextProvider>
+      <div className="wrapper clear">
+        <Basket />
+        <Header />
+        <div className="content p-40">
+          <div className="d-flex flex-wrap">
+            {products.map(item => (
+              <ProductCard key={item.id} item={item} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </AuthContextProvider>
   );
 }
 

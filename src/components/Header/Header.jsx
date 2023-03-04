@@ -2,8 +2,28 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap/';
 import '../../style/index.scss'
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import {useAuth} from '../../contexts/AuthContextProvider'
 
+const settings = [
+  {
+    type: "Register",
+    path: "/register",
+  },
+  {
+    type: "Login",
+    path: "/login",
+  },
+];
 const Header = () => {
+  const navigate = useNavigate();
+  const { logout, user, checkAuth } = useAuth();
+  React.useEffect(() => {
+    if (localStorage.getItem("token")) {
+      checkAuth();
+    }
+  }, []);
   return (
     <>
       <header className="d-flex justify-between align-center p-40">
@@ -15,13 +35,17 @@ const Header = () => {
           </div>
         </div>
         <ul className="d-flex">
-          <li className="mr-30">
-            <img width={18} height={18} src="/img/cart.svg" alt="" />
-            <span>1205 $</span>
-          </li>
-          <li>
-            <img width={18} height={18} src="/img/user.svg" alt="" />
-          </li>
+          <Link to="/cart">
+            <li className="mr-30">
+              <img width={18} height={18} src="/img/cart.svg" alt="" />
+              <span>1205 $</span>
+            </li>
+          </Link>
+          <Link to="/register" >
+            <li onClick={() => navigate()}>
+              <img width={18} height={18} src="/img/user.svg" alt="" />
+            </li>
+          </Link>
         </ul>
       </header>
       {/* postLogic */}

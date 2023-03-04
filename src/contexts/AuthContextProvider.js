@@ -3,7 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export const authContext = React.createContext();
-
 export const useAuth = () => useContext(authContext); //! custom hook
 
 const API = "http://35.239.251.89/";
