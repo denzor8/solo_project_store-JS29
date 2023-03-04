@@ -16,7 +16,6 @@ const RegistrationPage = () => {
       login: e.target[1].value,
       tel: e.target[2].value,
       password: e.target[3].value,
-      orders: []
     }).then((res) => {
       console.log(res)
     })

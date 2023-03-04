@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import BaseContent from "./components/BaseContent/src/components/BaseContent/BaseContent";
-import RegistrationPage from "./components/BaseContent/src/pages/RegistrationPage/RegistrationPage";
-import LoginPage from "./components/BaseContent/src/pages/LoginPage/LoginPage";
-import NotFound from "./components/BaseContent/src/pages/NotFound";
+import BaseContent from "./components/BaseContent/BaseContent";
+import RegistrationPage from "./pages//RegistrationPage/RegistrationPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import NotFound from "./pages/NotFound";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
