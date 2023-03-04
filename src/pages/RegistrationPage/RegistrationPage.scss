@@ -1,0 +1,68 @@
+.signup {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.register {
+	display: flex;
+	flex-direction: column;
+	// row-gap: 20px;
+	width: 300px;
+	&__title {
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 150%;
+		text-align: center;
+		color: #1e212c;
+	}
+	&__text {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 150%;
+		display: flex;
+		align-items: center;
+		text-align: center;
+		color: #787a80;
+	}
+	&__input {
+		width: 100%;
+		height: 40px;
+		padding-left: 15px;
+		margin: 10px 0 10px;
+		outline: none;
+		border: none;
+		&::placeholder {
+			font-weight: 400;
+			font-size: 14px;
+			color: #9a9ca5;
+		}
+	}
+	&__btn {
+		background: #66b0f0;
+		margin: 10px auto 10px;
+		font-weight: 700;
+		font-size: 14px;
+		letter-spacing: 0.5px;
+		color: #ffffff;
+		border-radius: 10px;
+		cursor: pointer;
+		height: 40px;
+		border: none;
+		width: 50%;
+	}
+	&__signin {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 150%;
+		color: #424551;
+	}
+}
+input {
+	width: 100%;
+	padding: 10px 20px;
+	
+}
