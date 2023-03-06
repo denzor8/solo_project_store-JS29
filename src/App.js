@@ -1,12 +1,17 @@
 import React from 'react';
 import AuthContextProvider from './contexts/AuthContextProvider';
-import BaseContent from './components/BaseContent/BaseContent';
 import MainRoutes from './MainRoutes';
+import CartContextProvider from './contexts/CartContextProvider';
+import ProductContextProvider from './contexts/ProductContextProvider';
 function App() {
   return (
-    <AuthContextProvider>
-      <MainRoutes />
-    </AuthContextProvider>
+    <ProductContextProvider>
+      <AuthContextProvider>
+        <CartContextProvider>
+          <MainRoutes />
+        </CartContextProvider>
+      </AuthContextProvider>
+    </ProductContextProvider>
   );
 }
 

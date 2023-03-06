@@ -48,7 +48,7 @@ const AuthContextProvider = ({ children }) => {
       setError("");
     } catch (e) {
       console.log(e);
-      setError("TY OSHIBSYA");
+      setError("Error");
     }
   };
 

@@ -1,36 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Header from '../Header/Header';
 import Basket from '../../components/Basket/Basket';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import axios from 'axios';
-import AuthContextProvider, { useAuth } from '../../contexts/AuthContextProvider';
+import { useCart } from '../../contexts/CartContextProvider';
+import ProductsList from '../ProductCard/ProductsList';
 
 function BaseContent() {
-  // product logic
-  const [products, setProducts] = useState([]);
-  const API = 'http://localhost:8000/products';
-  async function getProducts() {
-    let res = await axios.get(API);
-    setProducts(res.data);
-  };
-  useEffect(() => {
-    getProducts();
-  }, [])
+  const { cartOpened, setCartOpened } = useCart() // context
 
   return (
-    <AuthContextProvider>
-      <div className="wrapper clear">
-        <Basket />
-        <Header />
-        <div className="content p-40">
-          <div className="d-flex flex-wrap">
-            {products.map(item => (
-              <ProductCard key={item.id} item={item} />
-            ))}
-          </div>
-        </div>
+    <div className="wrapper clear">
+      {/* если cartOpened true то покажи компонент Basket  по умолчанию он у меня фолз */}
+      {cartOpened && <Basket />}
+      <Header />
+      <div className="content p-30">
+        <ProductsList />
       </div>
-    </AuthContextProvider>
+    </div>
   );
 }
 
