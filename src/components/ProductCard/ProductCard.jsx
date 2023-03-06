@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './ProductsCard.scss'
+// component card
 const ProductCard = ({ item }) => {
-  // console.log(item)
+  const [isAdded, setIsAdded] = useState(false)
+
+  const onClickPlus = () => {
+    setIsAdded(!isAdded)
+  }
+  useEffect(() => {
+    
+  },[])
+
   return (
     <div className="card">
       <div className="favorite">
@@ -17,9 +26,13 @@ const ProductCard = ({ item }) => {
           <span>Цена:</span>
           <b>{item.price}</b>
         </div>
-        <button className="button">
-          <img width={11} height={11} src="/img/plus.svg" alt="Plus" />
-        </button>
+        <img
+          onClick={onClickPlus}
+          className='plus'
+          width={26}
+          height={26}
+          src={isAdded ? "/img/btn-checked.svg":"/img/btn-plus.svg"}
+          alt="Plus" />
       </div>
     </div>
   )

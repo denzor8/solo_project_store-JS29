@@ -1,29 +1,99 @@
-import React, {useState, useEffect,useContext } from 'react';
-import axios from 'axios';
+import React, { createContext, useContext, useReducer } from "react";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
+import { ACTIONS, JSON_API_PRODUCTS } from "../helpers/consts";
 
-export const productContext = React.createContext();
+export const productContext = createContext();
 export const useProducts = () => useContext(productContext);
 
-export const ProductContextProvider = ({ children }) => {
-	const [products, setProducts] = useState([]);
-	const API = 'http://localhost:8000/products'
-	// console.log(products)
-	async function getProducts() {
-		let res = await axios.get(`${API}?page=`);
-		setProducts(res.data);
-		// console.log(res.data[0].name)
-	}
-	useEffect(() => {
-    getProducts()
-	}, [])
+const INIT_STATE = {
+  products: [],
+  productDetails: null,
+};
 
-	const values = {
-		products: products,
-		getProducts,
-	}
-	return (
-		<productContext.Provider value={values}>
-			{children}
-		</productContext.Provider>
-	)
-}
+const reducer = (state = INIT_STATE, action) => {
+  switch (action.type) {
+    case ACTIONS.GET_PRODUCTS:
+      return { ...state, products: action.payload };
+    case ACTIONS.GET_PRODUCT_DETAILS:
+      return { ...state, productDetails: action.payload };
+    default:
+      return state;
+  }
+};
+
+const ProductContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const getProducts = async () => {
+    const { data } = await axios(
+      `${JSON_API_PRODUCTS}/${window.location.search}`
+    );
+    dispatch({
+      type: ACTIONS.GET_PRODUCTS,
+      payload: data,
+    });
+  };
+
+  const addProduct = async (newProduct) => {
+    await axios.post(JSON_API_PRODUCTS, newProduct);
+    getProducts();
+  };
+
+  const getProductDetails = async (id) => {
+    dispatch({
+      type: ACTIONS.GET_PRODUCT_DETAILS,
+      payload: null,
+    });
+    const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
+    dispatch({
+      type: ACTIONS.GET_PRODUCT_DETAILS,
+      payload: data,
+    });
+  };
+
+  const saveEditedProduct = async (newProduct) => {
+    await axios.patch(`${JSON_API_PRODUCTS}/${newProduct.id}`, newProduct);
+    getProducts();
+  };
+
+  const deleteProduct = async (id) => {
+    await axios.delete(`${JSON_API_PRODUCTS}/${id}`);
+    getProducts();
+  };
+
+  const fetchByParams = (query, value) => {
+    const search = new URLSearchParams(location.search);
+
+    if (value === "all") {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+
+    const url = `${location.pathname}?${search.toString()}`;
+
+    navigate(url);
+  };
+
+  const values = {
+    products: state.products,
+    productDetails: state.productDetails,
+
+    getProducts,
+    addProduct,
+    getProductDetails,
+    saveEditedProduct,
+    deleteProduct,
+    fetchByParams,
+  };
+
+  return (
+    <productContext.Provider value={values}>{children}</productContext.Provider>
+  );
+};
+
+export default ProductContextProvider;
