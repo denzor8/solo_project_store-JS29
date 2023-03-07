@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import BaseContent from "./components/BaseContent/BaseContent";
 import RegistrationPage from "./pages//RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage"
 import NotFound from "./pages/NotFound";
 
 const MainRoutes = () => {
@@ -25,7 +26,12 @@ const MainRoutes = () => {
     {
       link: "/*",
       element: <NotFound />,
-      id: 3,
+      id: 4,
+    },
+    {
+      link: "/details/:id",
+      element: <ProductDetailsPage />,
+      id: 5,
     },
   ];
 

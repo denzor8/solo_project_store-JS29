@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Basket.scss'
 import { useCart } from '../../contexts/CartContextProvider'
+import { Button, TextField, Typography } from "@mui/material";
 const Basket = () => {
-  const { cartOpened, setCartOpened, closeCart } = useCart()
+  const { getCart, cart, deleteProductFromCart, closeCart, changeProductCount } = useCart()
+  console.log(cart);
+  useEffect(() => {
+    getCart();
+  }, []);
+
+  const cartCleaner = () => {
+    localStorage.removeItem("cart");
+    getCart();
+  };
+  // const pictureUrl = cart.products.item.picture
+  // console.log(pictureUrl);
   return (
     <div className="overlay">
       <div className="drawer">
@@ -14,35 +26,44 @@ const Basket = () => {
             alt="Close" />
         </h2>
 
-
-
         <div className="items">
-          <div className="cartItem d-flex align-center mb-20">
+          {cart?.products.map((product) => (
             <div
-              style={{ backgroundImage: 'url(/img/sneakers/1.jpg)' }}
-              className="cartItemImg"></div>
+              className="cartproduct d-flex align-center mb-20"
+              key={product.item.id}
+            >
 
-            <div className="mr-20 flex ">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 руб.</b>
+              <div
+                style={{ backgroundImage: `url(${product.item.picture})` }}
+                className="cartProductImg">
+                <img src={product.item.picture} alt="error:(" width="70" />
+              </div>
+
+              <div className="ml-20 flex priceDiv">
+                {/* className="mb-5" */}
+                <p >{product.item.name}</p>
+                <div className='d-flex justify-between'>
+                  <b className=''>{product.item.price}$</b>
+                  <input
+                    className='inputCount mb-20'
+                    type="number"
+                    value={product.count}
+                    size="small"
+                    onChange={(e) =>
+                      changeProductCount(e.target.value, product.item.id)
+                    } />
+                </div>
+
+
+              </div>
+              <img
+                onClick={deleteProductFromCart}
+                className="removeBtn"
+                src="/img/btn-remove.svg"
+                alt="Remove" />
             </div>
-            <img className="removeBtn" src="/img/btn-remove.svg" alt="Remove" />
-          </div>
+          ))}
 
-          <div className="cartItem d-flex align-center mb-20">
-            <div
-              style={{ backgroundImage: 'url(/img/sneakers/1.jpg)' }}
-              className="cartItemImg"></div>
-
-            <div className="mr-20 flex">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 руб.</b>
-            </div>
-            <img className="removeBtn" src="/img/btn-remove.svg" alt="Remove" />
-          </div>
-
-          <div className="cartItem d-flex align-center">
-          </div>
         </div>
 
         <div className="cartTotalBlock">
@@ -50,16 +71,19 @@ const Basket = () => {
             <li>
               <span>Итого:</span>
               <div></div>
-              <b>21 498 </b>
+              <b>{cart?.totalPrice}</b>
             </li>
             <li>
               <span>Налог 5%:</span>
               <div></div>
-              <b>1074  </b>
+              <b>1074 руб. </b>
             </li>
           </ul>
-          <button className="greenButton">
-            Оформить заказ <img src="/img/arrow.svg" alt="Arrow" />
+          <button
+            onClick={cartCleaner}
+            className="greenButton">
+            Оформить заказ
+            <img src="/img/arrow.svg" alt="Arrow" />
           </button>
         </div>
       </div>
