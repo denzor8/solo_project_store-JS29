@@ -46,7 +46,7 @@ const Header = () => {
   //
   const navigate = useNavigate();
   const { logout, user, checkAuth } = useAuth();
-  const { cartOpened, setCartOpened, openCart } = useCart();
+  const { cartOpened, setCartOpened, openCart, cartLength } = useCart();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -54,7 +54,7 @@ const Header = () => {
     }
   }, []);
   return (
-    <>
+    <div className="wrapper clear">
       <header className="d-flex justify-between align-center p-30">
         <div className="d-flex align-center">
           <img width={40} height={40} src="/img/wb.svg" alt="" />
@@ -68,8 +68,8 @@ const Header = () => {
             className="mr-30 cu-p"
             onClick={() => openCart()}>
             <img
-
-              width={18}
+              onClick={()=> cartLength}
+              width={18}  
               height={18}
               src="/img/cart.svg"
               alt="" />
@@ -120,41 +120,7 @@ const Header = () => {
 
         </ul>
       </header>
-      {/* postLogic */}
-      <p>POST</p>
-      <>
-        {/* content tipa sidebar */}
-        <Navbar expand="lg">
-          <Container className='mr-50 ml-50'>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <NavDropdown title="Категория" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">All</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.2">
-                    Electonics
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Sneakers</NavDropdown.Item>
-
-                  <NavDropdown.Item href="#action/3.4">
-                    Clothes
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.4">
-                    Sport
-                  </NavDropdown.Item>
-                </NavDropdown>
-
-              </Nav>
-            </Navbar.Collapse>
-            <div className="search-block d-flex ">
-              <img src="/img/search.svg" alt="Search" />
-              <input placeholder="Поиск..." />
-            </div>
-          </Container>
-        </Navbar>
-      </>
-    </>
+    </div>
 
   )
 }

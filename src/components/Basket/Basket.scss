@@ -1,127 +1,170 @@
-
 .overlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
 }
 
 .drawer {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  width: 420px;
-  height: 100%;
-  right: 0;
-  background: #ffffff;
-  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	width: 420px;
+	height: 100%;
+	right: 0;
+	background: #ffffff;
+	box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+	padding: 30px;
 
-  .items {
-    flex: 1;
-    overflow: auto;
-    margin-bottom: 40px;
-  }
+	.items {
+		flex: 1;
+		overflow: auto;
+		margin-bottom: 40px;
+	}
+	.cartProductImg > img {
+		width: 100%;
+		height: 70px;
+		margin-right: 10px;
+	}
 
-  h2 {
-    margin: 0;
-  }
+	h2 {
+		margin: 0;
+	}
 }
 
 .cartTotalBlock {
-  ul {
-    display: block;
-    margin-bottom: 40px !important;
+	ul {
+		display: block;
+		margin-bottom: 40px !important;
 
-    li {
-      display: flex;
-      align-items: flex-end;
-      margin-bottom: 20px;
+		li {
+			display: flex;
+			align-items: flex-end;
+			margin-bottom: 20px;
 
-      div {
-        flex: 1;
-        height: 1px;
-        border-bottom: 1px dashed #dfdfdf;
-        position: relative;
-        top: -4px;
-        margin: 0 7px;
-      }
-    }
-  }
+			div {
+				flex: 1;
+				height: 1px;
+				border-bottom: 1px dashed #dfdfdf;
+				position: relative;
+				top: -4px;
+				margin: 0 7px;
+			}
+		}
+	}
 
-  .greenButton {
-    position: relative;
+	.greenButton {
+		position: relative;
 
-    &:hover {
-      img {
-        transform: translateX(5px);
-      }
-    }
+		&:hover {
+			img {
+				transform: translateX(5px);
+			}
+		}
 
-    img {
-      position: absolute;
-      right: 30px;
-      top: 20px;
-      transition: transform 0.15s ease-in-out;
-    }
-  }
+		img {
+			position: absolute;
+			right: 30px;
+			top: 20px;
+			transition: transform 0.15s ease-in-out;
+		}
+	}
 }
 
 .greenButton {
-  width: 100%;
-  height: 55px;
-  background: #9dd558;
-  border-radius: 18px;
-  border: 0;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.1s ease-in-out;
+	width: 100%;
+	height: 55px;
+	background: #9dd558;
+	border-radius: 18px;
+	border: 0;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background 0.1s ease-in-out;
 
-  &:hover {
-    background: lighten(#9dd558, 5%);
-  }
+	&:hover {
+		background: lighten(#9dd558, 5%);
+	}
 
-  &:active {
-    background: darken(#9dd558, 5%);
-  }
+	&:active {
+		background: darken(#9dd558, 5%);
+	}
 }
 
 .cartItem {
-  border: 1px solid #f3f3f3;
-  border-radius: 20px;
-  overflow: hidden;
-  padding: 20px;
+	border: 1px solid #f3f3f3;
+	border-radius: 20px;
+	overflow: hidden;
+	padding: 20px;
 
-  .cartItemImg {
-    height: 70px;
-    width: 70px;
-    background-size: contain;
-    background-position: 0 -3px;
-    background-repeat: no-repeat;
-    margin-right: 20px;
-  }
+	.cartItemImg {
+		height: 70px;
+		width: 70px;
+		background-size: contain;
+		background-position: 0 -3px;
+		background-repeat: no-repeat;
+		margin-right: 20px;
+	}
 
-  p {
-    font-size: 16px;
-    margin: 0;
-  }
+	p {
+		font-size: 16px;
+		margin: 0;
+	}
 
-  b {
-    font-size: 14px;
-  }
+	b {
+		font-size: 14px;
+	}
 
-  .removeBtn {
-    opacity: 0.5;
-    cursor: pointer;
-    transition: opacity 0.15s ease-in-out;
+	.removeBtn {
+		opacity: 0.5;
+		cursor: pointer;
+		transition: opacity 0.15s ease-in-out;
 
-    &:hover {
-      opacity: 1;
-    }
-  }
+		&:hover {
+			opacity: 1;
+		}
+	}
 }
+.inputCount {
+	width: 30%;
+	height: 30%;
+	// font: inherit;
+	letter-spacing: inherit;
+	color: currentColor;
+	padding: 4px 0 5px;
+	border: 0;
+	box-sizing: content-box;
+	background: none;
+	height: 1.4375em;
+	margin: 0;
+	-webkit-tap-highlight-color: transparent;
+	display: block;
+	min-width: 0;
+	-webkit-animation-name: mui-auto-fill-cancel;
+	animation-name: mui-auto-fill-cancel;
+	-webkit-animation-duration: 10ms;
+	animation-duration: 10ms;
+	padding-top: 1px;
+	padding: 1.5px 14px;
+}
+// <TextField
+// className='inputCount mb-20'
+// type="number"
+// value={product.count}
+// size="small"
+// onChange={(e) =>
+//   changeProductCount(e.target.value, product.item.id)
+// }
+// />
+// <input
+// className='inputCount mb-20'
+// type="number"
+// value={product.count}
+// size="small"
+// onChange={(e) =>
+//   changeProductCount(e.target.value, product.item.id)
+// } />

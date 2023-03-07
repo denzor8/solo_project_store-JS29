@@ -3,17 +3,18 @@ import Header from '../Header/Header';
 import Basket from '../../components/Basket/Basket';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import axios from 'axios';
-import { useCart } from '../../contexts/CartContextProvider';
 import ProductsList from '../ProductCard/ProductsList';
+import { useCart } from '../../contexts/CartContextProvider';
+import FilterCategory from '../../components/FilterCategory/FilterCategory';
 
 function BaseContent() {
-  const { cartOpened, setCartOpened } = useCart() // context
+  const { cartOpened, openCart,setCartOpened } = useCart() // context
 
   return (
     <div className="wrapper clear">
-      {/* если cartOpened true то покажи компонент Basket  по умолчанию он у меня фолз */}
       {cartOpened && <Basket />}
       <Header />
+      <FilterCategory />
       <div className="content p-30">
         <ProductsList />
       </div>
