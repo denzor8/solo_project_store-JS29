@@ -130,7 +130,6 @@ const CartContextProvider = ({ children }) => {
       return obj ? true : false;
     }
   };
-  console.log(state.cart);
   const values = {
     cart: state.cart,
     cartLength: state.cartLength,

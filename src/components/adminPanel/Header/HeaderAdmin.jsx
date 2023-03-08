@@ -15,7 +15,10 @@ const settings = [
 ];
 const HeaderAdmin = () => {
   const navigate = useNavigate();
-
+  const logout = () => {
+    localStorage.removeItem("currentUser");
+    navigate("/");
+  };
   return (
     <div className="wrapper1 clear">
       <header className="d-flex justify-between align-center p-30">
@@ -31,16 +34,16 @@ const HeaderAdmin = () => {
         </div>
         <ul className="d-flex">
           <li
-            onClick={()=>navigate("/add")}
+            onClick={() => navigate("/add")}
             className='mr-20 cu-p'
           >
             Add Product
           </li>
           <li
-            onClick={()=>navigate("/admin")}
+            onClick={() => logout()}
             className='mr-20 cu-p'
           >
-            Admin 
+            Admin
           </li>
         </ul>
       </header>

@@ -1,12 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminPage from '../AdminPage/AdminPage'
-
 const CheckAdmin = () => {
-	// let currentUser = {
-	// 	username: 'admin',
-	// 	password: 'pass123',
-	// 	isAdmin: false
-	// };
 	const [currentUser, setCurrentUser] = useState({
 		username: 'admin',
 		password: 'pass123',
@@ -24,21 +18,23 @@ const CheckAdmin = () => {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		if (userName === 'admin' && password === "pass123") {
+		if (userName === currentUser.username && password === currentUser.password) {
 			console.log("Значения равны");
-			currentUser.isAdmin = true
 			let updatedUser = { ...currentUser, isAdmin: true }
 			setCurrentUser(updatedUser)
-			console.log(currentUser)
-
+			localStorage.setItem("currentUser", JSON.stringify(updatedUser));
 		} else {
 			console.log("Значения не равны");
 		}
 	}
-
+	useEffect(() => {
+		const savedUser = JSON.parse(localStorage.getItem("currentUser"));
+		if (savedUser) {
+			setCurrentUser(savedUser);
+		}
+	}, []);
 	return (
 		<>
-
 			{
 				currentUser.isAdmin
 					?

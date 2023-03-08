@@ -7,7 +7,6 @@ import "./ProductList.scss";
 
 const AdminList = ({ changeSideBarStatus, page, setPage }) => {
   const { products, getProducts } = useProducts();
-  console.log(products);
   useEffect(() => {
     getProducts();
   }, []);
