@@ -1,4 +1,9 @@
 import React, { createContext, useContext, useReducer, useState } from "react";
+import {
+  calcSubPrice,
+  calcTotalPrice,
+  getCountProductsInCart,
+} from "../helpers/functions";
 import { getCountProductsInLike } from "../helpers/functions";
 import { LIKE } from "../helpers/consts";
 
@@ -29,7 +34,7 @@ const LikeContextProvider = ({ children }) => {
 		if (!like) {
 			like = {
 				products: [],
-				totalLikes: 0,
+				totalPrice: 0,
 			};
 
 			localStorage.setItem("like", JSON.stringify(like));
@@ -51,7 +56,7 @@ const LikeContextProvider = ({ children }) => {
 		if (!like) {
 			like = {
 				products: [],
-				totalLikes: 0,
+				totalPrice: 0,
 			};
 		}
 		let newProduct = {
@@ -64,6 +69,7 @@ const LikeContextProvider = ({ children }) => {
 		} else {
 			like.products.push(newProduct);
 		}
+		like.totalPrice = calcTotalPrice(like.products);
 		localStorage.setItem("like", JSON.stringify(like));
 		getLike();
 	};
@@ -71,6 +77,7 @@ const LikeContextProvider = ({ children }) => {
 	const deleteProductFromLike = id => {
 		let like = JSON.parse(localStorage.getItem("like"));
 		like.products = like.products.filter(elem => elem.item.id !== id);
+		like.totalPrice = calcTotalPrice(like.products);
 		localStorage.setItem("like", JSON.stringify(like));
 		getLike();
 	};
