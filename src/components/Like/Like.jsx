@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 export default function Like() {
 	const navigate = useNavigate();
 	const { addProductToCart, checkProductInCart } = useCart();
-	const { getLike, like, deleteProductFromLike,closeLike,openLike } = useLike();
+	const { getLike, like, deleteProductFromLike, closeLike, openLike } = useLike();
 	React.useEffect(() => {
 		getLike();
 	}, []);
@@ -56,11 +56,22 @@ export default function Like() {
 
 
 							</div>
-							<img
-								onClick={() => deleteProductFromLike(product.item.id)}
-								className="removeBtn"
-								src="/img/btn-remove.svg"
-								alt="Remove" />
+							<div className="">
+								<div>
+									<img
+										onClick={() => deleteProductFromLike(product.item.id)}
+										className="removeBtn"
+										src="/img/btn-remove.svg"
+										alt="Remove" />
+								</div>
+								<div>
+									<img
+										// onClick={() => handleClickAddToCart()}
+										className="removeBtn"
+										src="/img/btn-plus.svg"
+										alt="Remove" />
+								</div>
+							</div>
 						</div>
 					))}
 

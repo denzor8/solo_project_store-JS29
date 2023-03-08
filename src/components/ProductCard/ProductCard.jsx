@@ -14,22 +14,16 @@ const ProductCard = ({ item }) => {
   const {addProductToLike,checkProductInLike } =useLike()
   const handleClickAddToCart = () => {
     setIsAdded(!isAdded)
+    addProductToCart(item)
   }
   const handleClickAddToCartLike = () => {
-    setIsAdded(!isLiked)
+    setIsLiked(!isLiked)
     addProductToLike(item)
   }
 
   return (
     <div className="card">
       <div className="favorite">
-        {/* <img
-          onClick={() => handleClickAddToCartLike()}
-          className='plus'
-          width={32}
-          height={32}
-          src={isLiked ? like : unLiked}
-          alt="Plus" /> */}
         <div
           className='plus'
           width={32}

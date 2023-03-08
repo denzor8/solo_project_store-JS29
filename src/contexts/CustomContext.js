@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer,useState } from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
 import { getCountProductsInLike } from "../helpers/functions";
 import { LIKE } from "../helpers/consts";
 
@@ -22,10 +22,6 @@ function reducer(state = INIT_STATE, action) {
 }
 
 const LikeContextProvider = ({ children }) => {
-  const [likeOpened, setLikeOpened] = useState(false);
-	const closeLike = () => setLikeOpened(false);
-  const openLike = () => setLikeOpened(true);
-
 	const [state, dispatch] = useReducer(reducer, INIT_STATE);
 	const getLike = () => {
 		let like = JSON.parse(localStorage.getItem("like"));
@@ -95,9 +91,7 @@ const LikeContextProvider = ({ children }) => {
 		addProductToLike,
 		getLike,
 		deleteProductFromLike,
-    checkProductInLike,
-    closeLike,
-    openLike,
+		checkProductInLike,
 	};
 
 	return <likeContext.Provider value={values}>{children}</likeContext.Provider>;
