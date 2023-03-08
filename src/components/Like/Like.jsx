@@ -6,13 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 // import "../../styles/Like.scss";
-import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
-import IconButton from "@mui/material/IconButton";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { orange } from "@mui/material/colors";
-import { useLike } from "../../contexts/LikeContextProvider";
+import { useLike } from "../../contexts/CustomContext";
 import { useCart } from "../../contexts/CartContextProvider";
 import { useNavigate } from "react-router-dom";
 
@@ -28,18 +22,11 @@ export default function Like() {
 		localStorage.removeItem("like");
 		getLike();
 	}
-	const theme = createTheme({
-		palette: {
-			primary: {
-				main: orange[50],
-			},
-		},
-	});
 
 	return (
 		<div className="overlay">
 			<div className="drawer">
-				<h2 className="d-flex justify-between mb-30">Корзина
+				<h2 className="d-flex justify-between mb-30">Избранное
 					<img
 						onClick={() => navigate('/')}
 						className="cu-p"

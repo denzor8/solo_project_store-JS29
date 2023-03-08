@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContextProvider'
 import { useCart } from '../../contexts/CartContextProvider'
-import { useLike } from '../../contexts/LikeContextProvider';
+import { useLike } from '../../contexts/CustomContext';
 
 //
 import Box from "@mui/material/Box";
@@ -47,7 +47,6 @@ const Header = () => {
   const navigate = useNavigate();
   const { logout, user, checkAuth } = useAuth();
   const { cart, openCart, cartLength } = useCart();
-  const { likeOpened, openLike } = useLike();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {

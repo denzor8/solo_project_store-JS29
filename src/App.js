@@ -3,18 +3,20 @@ import AuthContextProvider from './contexts/AuthContextProvider';
 import MainRoutes from './MainRoutes';
 import CartContextProvider from './contexts/CartContextProvider';
 import ProductContextProvider from './contexts/ProductContextProvider';
-import LikeContextProvider from './contexts/LikeContextProvider';
+import LikeContextProvider from './contexts/CustomContext';
 function App() {
   return (
-    <LikeContextProvider>
-      <ProductContextProvider>
-        <AuthContextProvider>
+
+    <ProductContextProvider>
+      <AuthContextProvider>
+        <LikeContextProvider>
           <CartContextProvider>
             <MainRoutes />
           </CartContextProvider>
-        </AuthContextProvider>
-      </ProductContextProvider>
-    </LikeContextProvider>
+        </LikeContextProvider>
+      </AuthContextProvider>
+    </ProductContextProvider>
+
   );
 }
 

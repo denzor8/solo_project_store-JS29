@@ -82,7 +82,7 @@ const Basket = () => {
           <div class="cartEmpty d-flex align-center justify-center flex-column flex">
             <img class="mb-20" width="120px" height="120px" src="/img/empty-cart.jpg" alt="Empty" />
             <h2>Корзина пустая</h2>
-            <p class="opacity-6">Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.</p>
+            <p class="opacity-6">Добавьте хотя бы один товар, чтобы сделать заказ.</p>
             <button onClick={closeCart} class="greenButton">
               <img src="/img/arrow.svg" alt="Arrow" />
               Вернуться назад
