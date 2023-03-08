@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import { Link } from "react-router-dom";
+import './LoginPage.scss'
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -16,7 +17,7 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="login-box">
-        <h2>Вход в аккаунт</h2>
+        <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="user-box">
             <input
@@ -35,7 +36,7 @@ const LoginPage = () => {
             <label>Password</label>
           </div>
           <button type="submit">
-            Войти
+            Login
             <span></span>
             <span></span>
             <span></span>

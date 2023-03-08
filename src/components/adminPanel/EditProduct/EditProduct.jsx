@@ -110,6 +110,7 @@ const EditProduct = () => {
               >
                 Save Changes
               </button>
+              <a href="/admin">Вернуться назад</a>
             </fieldset>
           </form>
         </div>

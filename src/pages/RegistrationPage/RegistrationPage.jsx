@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import './RegistrationPage.scss'
 
 
+
 const RegistrationPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +18,7 @@ const RegistrationPage = () => {
 
   return (
     <div className="login-box">
-      <h2>Регистрация</h2>
+      <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div className="user-box">
           <input
@@ -36,13 +37,13 @@ const RegistrationPage = () => {
           <label>Password</label>
         </div>
         <button onClick={() => register(username, password)}>
-          Зарегистрироваться
+          Register
           <span></span>
           <span></span>
           <span></span>
           <span></span>
         </button>
-        <p className='register__quest'>уже есть аккаунт? <Link className='register__link' to='/login'>Войти</Link> </p>
+        <p className='register__quest'>Уже есть аккаунт? <Link className='register__link' to='/login'>Войти</Link> </p>
         <Link to='/' className='home'>Вернуться на главную страницу</Link>
       </form>
     </div>
