@@ -72,7 +72,7 @@ const Header = () => {
             onClick={() => navigate("/admin")}
             className='mr-20 cu-p'
           >
-            Admin
+            Войти как админ
           </li>
           <li
             className="mr-10 cu-p"
@@ -90,8 +90,8 @@ const Header = () => {
           >
             <img
               onClick={() => cartLength}
-              width={18}
-              height={18}
+              width={23}
+              height={23}
               src="/img/cart.svg"
               alt="" />
             <b> ${cart?.totalPrice}</b>

@@ -24,8 +24,9 @@ const AdminList = ({ changeSideBarStatus, page, setPage }) => {
   }
   return (
     <>
+      
       <div className="images">
-        <h3 style={{ textAlign: "center", marginBottom: "0" }}>Products List</h3>
+        <h3 style={{ textAlign: "center", marginBottom: "0" }}>Список товаров</h3>
         <div className="posts-list">
           {products ? (
             currentData().map((item) => <ProductCard key={item.id} item={item} />)
