@@ -34,8 +34,6 @@ const ProductsList = () => {
           count={count}
           page={page}
           onChange={handlePage}
-          color="secondary"
-          
         />
       </div>
     </div>

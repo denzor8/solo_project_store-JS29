@@ -18,7 +18,6 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import '../../style/index.scss'
 //
-
 const settings = [
   {
     type: "Register",
@@ -48,7 +47,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { logout, user, checkAuth } = useAuth();
   const { cartOpened, setCartOpened, openCart, cartLength } = useCart();
-  const { likeOpened,openLike } = useLike();
+  const { likeOpened, openLike } = useLike();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -69,6 +68,12 @@ const Header = () => {
           </div>
         </div>
         <ul className="d-flex">
+          <li
+            onClick={()=>navigate("/admin")}
+            className='mr-20 cu-p'
+          >
+            Admin 
+          </li>
           <li
             className="mr-10 cu-p"
           >
