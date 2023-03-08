@@ -46,7 +46,7 @@ const Header = () => {
   //
   const navigate = useNavigate();
   const { logout, user, checkAuth } = useAuth();
-  const { cartOpened, setCartOpened, openCart, cartLength } = useCart();
+  const { cart, openCart, cartLength } = useCart();
   const { likeOpened, openLike } = useLike();
 
   useEffect(() => {
@@ -94,7 +94,7 @@ const Header = () => {
               height={18}
               src="/img/cart.svg"
               alt="" />
-            <span>1205 $</span>
+             <b>{cart?.totalPrice}</b>
           </li>
           {/* <li onClick={() => navigate()}>
               <img width={18} height={18} src="/img/user.svg" alt="" />

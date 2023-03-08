@@ -73,7 +73,7 @@ const Basket = () => {
             <li>
               <span>Налог 5%:</span>
               <div></div>
-              <b>1074 руб. </b>
+              <b>$10</b>
             </li>
           </ul>
           <button
