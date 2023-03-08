@@ -9,26 +9,29 @@ import Basket from '../../components/Basket/Basket';
 import { useCart } from "../../contexts/CartContextProvider";
 import unLiked from "../../img/unliked.svg"
 import like from "../../img/liked.svg"
+import { useLike } from '../../contexts/CustomContext';
 const ProductDetails = () => {
 	const { id } = useParams();
-	const { getProductDetails, productDetails } = useProducts();
-	const { cartOpened, addProductToCart } = useCart()
+	const { getProductDetails, productDetails, checkProductInCart } = useProducts();
+	const { cartOpened, addProductToCart, deleteProductFromCart } = useCart()
+	const { checkProductInLike, addProductToLike } = useLike()
+
 	const [isAdded, setIsAdded] = useState(false)
 	const [isLiked, setIsLiked] = useState(false)
-	const onClickPlus = () => {
-		setIsAdded(!isAdded)
-	}
+	const [isItemInCart, setIsItemInCart] = useState(false)
 
-	const onClickLike = () => {
-		setIsAdded(!isLiked)
+	const clickToBtn = () => {
+		setIsItemInCart()
 	}
 
 	const handleClickAddToCart = () => {
-		onClickPlus()
+		setIsAdded(!isAdded)
 		addProductToCart(productDetails)
+		setIsItemInCart(!isItemInCart)
 	}
 	const handleClickAddToCartLike = () => {
 		setIsLiked(!isLiked)
+		addProductToLike(productDetails)
 	}
 
 
@@ -45,7 +48,12 @@ const ProductDetails = () => {
 						<div className='details__content'>
 							<div className='details__card'>
 								<div className="details__content-containter">
-									<h3 className="details__content-title"> {productDetails.name}</h3>
+									<div className='d-flex justify-between'>
+										<h3 className="details__content-title"> {productDetails.name}</h3>
+										<b className="">
+											Category: {productDetails.type}
+										</b>
+									</div>
 									<div className="details__content-img">
 										<img
 											src={productDetails.picture}
@@ -58,37 +66,42 @@ const ProductDetails = () => {
 										<h4>Description:</h4>
 										{productDetails.description}
 									</div>
-									<p className="">${productDetails.price}</p>
-									<p className="">
-										Category: {productDetails.type}
-									</p>
-									<hr />
-									<div className='details__basket'>
-										<div className='details__ctn'>
-											<div className="details__favorite">
-												<img
-													onClick={() => handleClickAddToCartLike()}
-													className='plus'
-													width={32}
-													height={32}
-													src={isLiked ? like : unLiked}
-													alt="Plus" />
-											</div>
-											<div>
-												<img
-													onClick={() => handleClickAddToCart(productDetails)}
-													className='plus'
-													width={32}
-													height={32}
-													src={isAdded ? checkedSvg : plusSvg}
-													alt="Plus" />
+								</div>
+							</div>
+
+							<div className='details__button'>
+								<div className='container'>
+									<div className='details__favorite-btn'>
+										<div>
+											<p className="details__basket-title">{productDetails.price}$</p>
+										</div>
+										<div className='details__basket'>
+											<div className='details__ctn'>
+												<div className="details__favorite">
+													<img
+														onClick={() => handleClickAddToCartLike()}
+														className='plus'
+														width={38}
+														height={38}
+														src={checkProductInLike(productDetails.id) ? like : unLiked}
+														alt="Plus" />
+												</div>
 											</div>
 										</div>
 									</div>
+
+									<div>
+										<button
+											onClick={() => {
+												isItemInCart ? handleClickAddToCart(productDetails) : handleClickAddToCart(productDetails)
+											}}
+											className='btn-add'
+										>
+											{isItemInCart ? 'Удалить из корзины' : 'Добавить в корзину'}
+										</button>
+									</div>
 								</div>
-
 							</div>
-
 						</div>
 					</>
 				) : (
