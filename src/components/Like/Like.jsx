@@ -1,11 +1,4 @@
-import * as React from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-// import "../../styles/Like.scss";
+import React, { useEffect } from "react";
 import { useLike } from "../../contexts/CustomContext";
 import { useCart } from "../../contexts/CartContextProvider";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +7,7 @@ export default function Like() {
 	const navigate = useNavigate();
 	const { addProductToCart, checkProductInCart } = useCart();
 	const { getLike, like, deleteProductFromLike, closeLike, openLike } = useLike();
-	React.useEffect(() => {
+	useEffect(() => {
 		getLike();
 	}, []);
 
@@ -56,7 +49,7 @@ export default function Like() {
 
 
 							</div>
-							<div className="">
+							<div>
 								<div>
 									<img
 										onClick={() => deleteProductFromLike(product.item.id)}
@@ -66,9 +59,11 @@ export default function Like() {
 								</div>
 								<div>
 									<img
-										// onClick={() => handleClickAddToCart()}
+										onClick={() => addProductToCart(product.item)}
 										className="removeBtn"
-										src="/img/btn-plus.svg"
+										src={
+											checkProductInCart(product.item.id)
+												? "/img/btn-checked.svg" : "/img/btn-plus.svg"}
 										alt="Remove" />
 								</div>
 							</div>
@@ -85,8 +80,8 @@ export default function Like() {
 							<b>{like?.totalPrice}</b>
 						</li>
 						<li>
-							{/* <span>Налог 5%:</span> */}
-							{/* <div></div> */}
+							<span>Налог 5%:</span>
+							<div></div>
 							<b>$10</b>
 						</li>
 					</ul>

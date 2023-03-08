@@ -68,6 +68,12 @@ const Header = () => {
         </div>
         <ul className="d-flex">
           <li
+            onClick={() => navigate("/")}
+            className='mr-20 cu-p'
+          >
+            Главная страница
+          </li>
+          <li
             onClick={() => navigate("/admin")}
             className='mr-20 cu-p'
           >

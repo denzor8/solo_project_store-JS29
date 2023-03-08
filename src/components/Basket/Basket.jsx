@@ -65,12 +65,12 @@ const Basket = () => {
                 <li>
                   <span>Итого:</span>
                   <div></div>
-                  <b>21 498 руб. </b>
+                  <b>{cart?.totalPrice}</b>
                 </li>
                 <li>
                   <span>Налог 5%:</span>
                   <div></div>
-                  <b>1074 руб. </b>
+                  <b>10$</b>
                 </li>
               </ul>
               <button className="greenButton">
