@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "name": "AIR JORDAN RETRO 2",
-      "description": "The Maison Chateau Rouge x Air Jordan 2 is one of the many outstanding collaborative editions of the classic Air Jordan model that released in 2022.",
-      "price": 309,
-      "picture": "https://img.stadiumgoods.com/18/64/75/84/18647584_40493519_2048.jpg",
-      "type": "sneakers",
-      "id": 73
-    },
-    {
       "name": "AIR FORCE 1 LOW '07",
       "description": "The Nike Air Force 1 Low “White on White” is one of the most popular and best-selling sneakers of all time. An essential for any collection, the all-white Air Force 1 Low is a versatile design that can be worn with virtually anything.",
       "price": 100,
@@ -17,7 +9,7 @@
       "id": 74
     },
     {
-      "name": "DUNK LOW",
+      "name": "DUNK LOW99",
       "description": "The Nike Dunk Low “Georgetown” is an semi-original colorway of the retro basketball shoe from Nike’s college basketball-inspired “Be True to Your School” collection of Dunks from 1985.",
       "price": 319,
       "picture": "https://img.stadiumgoods.com/17/30/27/25/17302725_36247900_2048.jpg",

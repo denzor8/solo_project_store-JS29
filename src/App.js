@@ -6,15 +6,15 @@ import ProductContextProvider from './contexts/ProductContextProvider';
 import LikeContextProvider from './contexts/LikeContextProvider';
 function App() {
   return (
-    <LikeContextProvider>
-      <ProductContextProvider>
+    <ProductContextProvider>
+      <LikeContextProvider>
         <AuthContextProvider>
           <CartContextProvider>
             <MainRoutes />
           </CartContextProvider>
         </AuthContextProvider>
-      </ProductContextProvider>
-    </LikeContextProvider>
+      </LikeContextProvider>
+    </ProductContextProvider>
   );
 }
 
