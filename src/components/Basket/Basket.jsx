@@ -13,8 +13,6 @@ const Basket = () => {
     localStorage.removeItem("cart");
     getCart();
   };
-  // const pictureUrl = cart.products.item.picture
-  // console.log(pictureUrl);
   return (
     <div className="overlay">
       <div className="drawer">

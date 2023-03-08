@@ -8,10 +8,8 @@ import { CART } from "../helpers/consts";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 
-const cartContext = createContext();
-export const useCart = () => {
-  return useContext(cartContext);
-};
+export const likeContext = createContext();
+export const useLike = () => useContext(likeContext);
 
 const INIT_STATE = {
   cart: JSON.parse(localStorage.getItem("cart")),
@@ -29,11 +27,11 @@ function reducer(state = INIT_STATE, action) {
   }
 }
 
-const CartContextProvider = ({ children }) => {
-  const [cartOpened, setCartOpened] = useState(false);
-	const closeCart = () => setCartOpened(false);
-  const openCart = () => setCartOpened(true);
-  
+const LikeContextProvider = ({ children }) => {
+	const [likeOpened, setLikeOpened] = useState(false);
+	const closeLike = () => setLikeOpened(false);
+	// const openLike = () => setLikeOpened(true);
+  const openLike = () => console.log('Hello');
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   const getCart = () => {
@@ -134,18 +132,18 @@ const CartContextProvider = ({ children }) => {
   const values = {
     cart: state.cart,
     cartLength: state.cartLength,
-    cartOpened,
+    likeOpened,
 
     addProductToCart,
     getCart,
     changeProductCount,
     deleteProductFromCart,
     checkProductInCart,
-    closeCart,
-    openCart,
+    closeLike,
+    openLike,
   };
 
-  return <cartContext.Provider value={values}>{children}</cartContext.Provider>;
+	return <likeContext.Provider value={values}>{children}</likeContext.Provider>;
 };
 
-export default CartContextProvider;
+export default LikeContextProvider;

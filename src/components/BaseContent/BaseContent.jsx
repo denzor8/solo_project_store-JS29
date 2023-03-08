@@ -3,20 +3,17 @@ import Header from '../Header/Header';
 import Basket from '../../components/Basket/Basket';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import axios from 'axios';
-import ProductsList from '../ProductCard/ProductsList';
 import { useCart } from '../../contexts/CartContextProvider';
-import FilterCategory from '../../components/FilterCategory/FilterCategory';
+import ProductsPage from '../../pages/ProductsPage/ProductsPage';
 
 function BaseContent() {
-  const { cartOpened, openCart,setCartOpened } = useCart() // context
-
+  const { cartOpened, openCart, setCartOpened } = useCart()
   return (
     <div className="wrapper clear">
       {cartOpened && <Basket />}
       <Header />
-      <FilterCategory />
       <div className="content p-30">
-        <ProductsList />
+        <ProductsPage />
       </div>
     </div>
   );
