@@ -1,11 +1,9 @@
-import React, { createContext, useContext, useReducer,useState } from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
 import { getCountProductsInLike } from "../helpers/functions";
 import { LIKE } from "../helpers/consts";
 
 export const likeContext = createContext();
-export const useLike = () => {
-	return useContext(likeContext);
-};
+export const useLike = () => useContext(likeContext);
 
 const INIT_STATE = {
 	like: JSON.parse(localStorage.getItem("like")),
@@ -24,10 +22,6 @@ function reducer(state = INIT_STATE, action) {
 }
 
 const LikeContextProvider = ({ children }) => {
-  const [likeOpened, setLikeOpened] = useState(false);
-	const closeLike = () => setLikeOpened(false);
-  const openLike = () => setLikeOpened(true);
-
 	const [state, dispatch] = useReducer(reducer, INIT_STATE);
 	const getLike = () => {
 		let like = JSON.parse(localStorage.getItem("like"));
@@ -52,31 +46,25 @@ const LikeContextProvider = ({ children }) => {
 		});
 	};
 
-	const addProductToLike = product => {
+	const addProductToLike = (product) => {
 		let like = JSON.parse(localStorage.getItem("like"));
-
 		if (!like) {
 			like = {
 				products: [],
 				totalLikes: 0,
 			};
 		}
-
 		let newProduct = {
 			item: product,
 			count: 1,
 		};
-
 		let productToFind = like.products.find(elem => elem.item.id === product.id);
-
 		if (productToFind) {
 			like.products = like.products.filter(elem => elem.item.id !== product.id);
 		} else {
 			like.products.push(newProduct);
 		}
-
 		localStorage.setItem("like", JSON.stringify(like));
-
 		getLike();
 	};
 
@@ -103,9 +91,7 @@ const LikeContextProvider = ({ children }) => {
 		addProductToLike,
 		getLike,
 		deleteProductFromLike,
-    checkProductInLike,
-    closeLike,
-    openLike,
+		checkProductInLike,
 	};
 
 	return <likeContext.Provider value={values}>{children}</likeContext.Provider>;
