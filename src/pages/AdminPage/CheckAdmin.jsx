@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import AdminPage from '../AdminPage/AdminPage'
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
 const CheckAdmin = () => {
 	const [currentUser, setCurrentUser] = useState({
 		username: 'admin',
@@ -19,12 +22,12 @@ const CheckAdmin = () => {
 	function handleSubmit(e) {
 		e.preventDefault();
 		if (userName === currentUser.username && password === currentUser.password) {
-			console.log("Значения равны");
+			alert('Здраствуй раб')
 			let updatedUser = { ...currentUser, isAdmin: true }
 			setCurrentUser(updatedUser)
 			localStorage.setItem("currentUser", JSON.stringify(updatedUser));
 		} else {
-			console.log("Значения не равны");
+			alert('ТЫ не Админ мамин хацкер')
 		}
 	}
 	useEffect(() => {

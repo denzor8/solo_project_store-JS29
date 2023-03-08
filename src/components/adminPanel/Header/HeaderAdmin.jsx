@@ -37,13 +37,13 @@ const HeaderAdmin = () => {
             onClick={() => navigate("/add")}
             className='mr-20 cu-p'
           >
-            Add Product
+            Добавить продукт
           </li>
           <li
             onClick={() => logout()}
             className='mr-20 cu-p'
           >
-            User
+            Выйти
           </li>
         </ul>
       </header>
