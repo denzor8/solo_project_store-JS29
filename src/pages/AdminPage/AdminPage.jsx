@@ -4,6 +4,9 @@ import AdminList from "../../components/adminPanel/AdminList/AdminList";
 import Filter from "../../components/FilterCategory/FilterCategory.jsx";
 const AdminPage = () => {
 	const [page, setPage] = useState(1);
+	const checkAdmin = (e) => {
+
+	}
 	return (
 		<>
 			<Header />

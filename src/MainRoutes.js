@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import EditProductPage from "./pages/EditProductPage/EditProductPage";
 import AddProductPage from "./pages/AddProductPage/AddProductPage";
+import LikePage from './pages/LikePage/LikePage';
+import CheckAdmin from './pages/AdminPage/CheckAdmin'
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -38,7 +40,7 @@ const MainRoutes = () => {
     },
     {
       link: "/admin",
-      element: <AdminPage />,
+      element: <CheckAdmin />,
       id: 5,
     },
     {
@@ -49,6 +51,11 @@ const MainRoutes = () => {
     {
       link: "/add",
       element: <AddProductPage />,
+      id: 6,
+    },
+    {
+      link: "/like",
+      element: <LikePage />,
       id: 6,
     },
   ];

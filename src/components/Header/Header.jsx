@@ -69,19 +69,19 @@ const Header = () => {
         </div>
         <ul className="d-flex">
           <li
-            onClick={()=>navigate("/admin")}
+            onClick={() => navigate("/admin")}
             className='mr-20 cu-p'
           >
-            Admin 
+            Admin
           </li>
           <li
             className="mr-10 cu-p"
+            onClick={() => navigate("/like")}
           >
             <img
-              onClick={() => openLike()}
               width={27}
               height={27}
-              src="/img/unliked.svg"
+              src="/img/heart.svg"
               alt="" />
           </li>
           <li
@@ -94,11 +94,9 @@ const Header = () => {
               height={18}
               src="/img/cart.svg"
               alt="" />
-             <b>{cart?.totalPrice}</b>
+            <b> ${cart?.totalPrice}</b>
           </li>
-          {/* <li onClick={() => navigate()}>
-              <img width={18} height={18} src="/img/user.svg" alt="" />
-            </li> */}
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Profile">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

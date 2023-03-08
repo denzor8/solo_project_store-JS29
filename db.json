@@ -1,4 +1,10 @@
 {
+  "admin":[
+    {
+      "name":"Tom",
+      "password": "pass123"
+    }
+  ],
   "products": [
     {
       "name": "AIR FORCE 1 LOW '07",

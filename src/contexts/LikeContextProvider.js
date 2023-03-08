@@ -1,147 +1,112 @@
-import React, {useState, createContext, useContext, useReducer } from "react";
-import {
-  calcSubPrice,
-  calcTotalPrice,
-  getCountProductsInCart,
-} from "../helpers/functions";
-import { CART } from "../helpers/consts";
-import Alert from "@mui/material/Alert";
-import Stack from "@mui/material/Stack";
+import React, { createContext, useContext, useReducer,useState } from "react";
+import { getCountProductsInLike } from "../helpers/functions";
+import { LIKE } from "../helpers/consts";
 
 export const likeContext = createContext();
-export const useLike = () => useContext(likeContext);
+export const useLike = () => {
+	return useContext(likeContext);
+};
 
 const INIT_STATE = {
-  cart: JSON.parse(localStorage.getItem("cart")),
-  cartLength: getCountProductsInCart(),
+	like: JSON.parse(localStorage.getItem("like")),
+	likelength: getCountProductsInLike(),
 };
 
 function reducer(state = INIT_STATE, action) {
-  switch (action.type) {
-    case CART.GET_CART:
-      return { ...state, cart: action.payload };
-    case CART.GET_CART_LENGTH:
-      return { ...state, cartLength: action.payload };
-    default:
-      return state;
-  }
+	switch (action.type) {
+		case LIKE.GET_LIKE:
+			return { ...state, like: action.payload };
+		case LIKE.GET_LIKE_LENGTH:
+			return { ...state, likelength: action.payload };
+		default:
+			return state;
+	}
 }
 
 const LikeContextProvider = ({ children }) => {
-	const [likeOpened, setLikeOpened] = useState(false);
+  const [likeOpened, setLikeOpened] = useState(false);
 	const closeLike = () => setLikeOpened(false);
-	// const openLike = () => setLikeOpened(true);
-  const openLike = () => console.log('Hello');
-  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const openLike = () => setLikeOpened(true);
 
-  const getCart = () => {
-    let cart = JSON.parse(localStorage.getItem("cart"));
+	const [state, dispatch] = useReducer(reducer, INIT_STATE);
+	const getLike = () => {
+		let like = JSON.parse(localStorage.getItem("like"));
 
-    if (!cart) {
-      cart = {
-        products: [],
-        totalPrice: 0,
-      };
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
+		if (!like) {
+			like = {
+				products: [],
+				totalLikes: 0,
+			};
 
-    dispatch({
-      type: CART.GET_CART_LENGTH,
-      payload: getCountProductsInCart(),
-    });
+			localStorage.setItem("like", JSON.stringify(like));
+		}
 
-    dispatch({
-      type: CART.GET_CART,
-      payload: cart,
-    });
-  };
+		dispatch({
+			type: LIKE.GET_LIKE_LENGTH,
+			payload: getCountProductsInLike(),
+		});
 
+		dispatch({
+			type: LIKE.GET_LIKE,
+			payload: like,
+		});
+	};
 
-  // добавление товара в корзину -addProductToCart
-  const addProductToCart = (product) => {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    if (!cart) {
-      cart = {
-        products: [],
-        totalPrice: 0,
-      };
-    }
-    let newProduct = {
-      item: product,
-      count: 1,
-      subPrice: +product.price,
-    };
-    let productToFind = cart.products.find(
-      (elem) => elem.item.id === product.id
-    );
-    if (productToFind) {
-      cart.products = cart.products.filter(
-        (elem) => elem.item.id !== product.id
-      );
-    } else {
-      cart.products.push(newProduct);
-    }
-    cart.totalPrice = calcTotalPrice(cart.products);
-    localStorage.setItem("cart", JSON.stringify(cart));
-		getCart();
-		
-  };
-  // превышение количества товаров в корзине
-  const changeProductCount = (count, id) => {
-    if (count < 0) {
-      <Stack sx={{ width: "100%" }} spacing={2}>
-        <Alert severity="error">Count of product must be qreater then 0</Alert>
-      </Stack>;
-      return;
-    }
+	const addProductToLike = product => {
+		let like = JSON.parse(localStorage.getItem("like"));
 
-    let cart = JSON.parse(localStorage.getItem("cart"));
+		if (!like) {
+			like = {
+				products: [],
+				totalLikes: 0,
+			};
+		}
 
-    cart.products = cart.products.map((product) => {
-      if (product.item.id === id) {
-        product.count = count;
-        product.subPrice = calcSubPrice(product);
-      }
-      return product;
-    });
+		let newProduct = {
+			item: product,
+			count: 1,
+		};
 
-    cart.totalPrice = calcTotalPrice(cart.products);
-    localStorage.setItem("cart", JSON.stringify(cart));
+		let productToFind = like.products.find(elem => elem.item.id === product.id);
 
-    getCart();
-  };
+		if (productToFind) {
+			like.products = like.products.filter(elem => elem.item.id !== product.id);
+		} else {
+			like.products.push(newProduct);
+		}
 
-  // удаление товара из корзины -deleteProductFromCart
-  const deleteProductFromCart = (id) => {
-    let cart = JSON.parse(localStorage.getItem("cart"));
+		localStorage.setItem("like", JSON.stringify(like));
 
-    cart.products = cart.products.filter((elem) => elem.item.id !== id);
-    cart.totalPrice = calcTotalPrice(cart.products);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    getCart();
-  };
-  // проверка товаров в корзине -checkProductInCart
-  const checkProductInCart = (id) => {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    if (cart) {
-      let obj = cart.products.find((elem) => elem.item.id === id);
-      return obj ? true : false;
-    }
-  };
-  console.log(state.cart);
-  const values = {
-    cart: state.cart,
-    cartLength: state.cartLength,
-    likeOpened,
+		getLike();
+	};
 
-    addProductToCart,
-    getCart,
-    changeProductCount,
-    deleteProductFromCart,
-    checkProductInCart,
+	const deleteProductFromLike = id => {
+		let like = JSON.parse(localStorage.getItem("like"));
+		like.products = like.products.filter(elem => elem.item.id !== id);
+		localStorage.setItem("like", JSON.stringify(like));
+		getLike();
+	};
+
+	const checkProductInLike = id => {
+		let like = JSON.parse(localStorage.getItem("like"));
+
+		if (like) {
+			let obj = like.products.find(elem => elem.item.id === id);
+			return obj ? true : false;
+		}
+	};
+
+	const values = {
+		like: state.like,
+		likelength: state.likelength,
+
+		addProductToLike,
+		getLike,
+		deleteProductFromLike,
+    checkProductInLike,
     closeLike,
     openLike,
-  };
+	};
 
 	return <likeContext.Provider value={values}>{children}</likeContext.Provider>;
 };

@@ -1,42 +1,54 @@
-import React, { useEffect } from 'react'
-import './Basket.scss'
-import { useCart } from '../../contexts/CartContextProvider'
-import { useLike } from '../../contexts/LikeContextProvider'
-import { Button, TextField, Typography } from "@mui/material";
-import { useNavigate } from 'react-router-dom';
-const Like = () => {
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+// import "../../styles/Like.scss";
+import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
+import IconButton from "@mui/material/IconButton";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { orange } from "@mui/material/colors";
+import { useLike } from "../../contexts/LikeContextProvider";
+import { useCart } from "../../contexts/CartContextProvider";
+import { useNavigate } from "react-router-dom";
+
+export default function Like() {
 	const navigate = useNavigate();
-	const { addProductToCart, checkProductInCart, closeCart, openCart } = useCart();
-	const { getLike, cart, deleteProductFromLike, closeLike } = useLike();
-	useEffect(() => {
+	const { addProductToCart, checkProductInCart } = useCart();
+	const { getLike, like, deleteProductFromLike,closeLike,openLike } = useLike();
+	React.useEffect(() => {
 		getLike();
 	}, []);
-	
-	
-	// const time = () => {
-	// 	navigate('/')
-	// 	setTimeout(() => {
-	// 		openCart();
-	// 	}, 1000);
-	// }
-	const likeCleaner = () => {
+
+	function likeCleaner() {
 		localStorage.removeItem("like");
 		getLike();
-	};
+	}
+	const theme = createTheme({
+		palette: {
+			primary: {
+				main: orange[50],
+			},
+		},
+	});
 
 	return (
 		<div className="overlay">
 			<div className="drawer">
-				<h2 className="d-flex justify-between mb-30">Избранное
+				<h2 className="d-flex justify-between mb-30">Корзина
 					<img
-						onClick={() => closeLike()}
+						onClick={() => navigate('/')}
 						className="cu-p"
 						src="/img/btn-remove.svg"
 						alt="Close" />
 				</h2>
 
 				<div className="items">
-					{cart?.products.map((product) => (
+					{like?.products.map((product) => (
 						<div
 							className="cartproduct d-flex align-center mb-20"
 							key={product.item.id}
@@ -54,9 +66,11 @@ const Like = () => {
 								<div className='d-flex justify-between'>
 									<b className=''>{product.item.price}$</b>
 								</div>
+
+
 							</div>
 							<img
-								onClick={deleteProductFromLike}
+								onClick={() => deleteProductFromLike(product.item.id)}
 								className="removeBtn"
 								src="/img/btn-remove.svg"
 								alt="Remove" />
@@ -70,25 +84,22 @@ const Like = () => {
 						<li>
 							<span>Итого:</span>
 							<div></div>
-							<b>{cart?.totalPrice}</b>
+							<b>{like?.totalPrice}</b>
 						</li>
 						<li>
-							<span>Налог 5%:</span>
-							<div></div>
-							<b>1074 руб. </b>
+							{/* <span>Налог 5%:</span> */}
+							{/* <div></div> */}
+							<b>$10</b>
 						</li>
 					</ul>
-					{/* очистить лайки  */}
 					<button
-						// onClick={() => time()}
+						onClick={likeCleaner}
 						className="greenButton">
-						Перейти к корзине
+						Оформить заказ
 						<img src="/img/arrow.svg" alt="Arrow" />
 					</button>
 				</div>
 			</div>
 		</div>
-	)
+	);
 }
-
-export default Like
