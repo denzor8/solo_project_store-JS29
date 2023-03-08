@@ -42,7 +42,8 @@ const FilterCategory = ({ setPage }) => {
 								<NavDropdown.Item
 									href="?q=sneakers">
 									Sneakers</NavDropdown.Item>
-								<NavDropdown.Item>
+								<NavDropdown.Item
+									href="?q=clothes">
 									Clothes
 								</NavDropdown.Item>
 								<NavDropdown.Item
@@ -54,7 +55,7 @@ const FilterCategory = ({ setPage }) => {
 						</Nav>
 					</Navbar.Collapse>
 					{/* filter po categori */}
-					
+
 					<div className="search-block d-flex ">
 						<img src="/img/search.svg" alt="Search" />
 						<input
