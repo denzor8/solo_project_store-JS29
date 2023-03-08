@@ -66,7 +66,8 @@ const Header = () => {
         <ul className="d-flex">
           <li
             className="mr-30 cu-p"
-            onClick={() => openCart()}>
+            onClick={() => openCart()}
+          >
             <img
               onClick={()=> cartLength}
               width={18}  

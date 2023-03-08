@@ -1,18 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContextProvider";
-import './ProductDetails.scss'
 import Header from '../../components/Header/Header';
+import './ProductDetails.scss'
+import checkedSvg from "../../img/btn-checked.svg"
+import plusSvg from "../../img/btn-plus.svg"
+import Basket from '../../components/Basket/Basket';
+import { useCart } from "../../contexts/CartContextProvider";
 
 const ProductDetails = () => {
 	const { id } = useParams();
 	const { getProductDetails, productDetails } = useProducts();
+	const { cartOpened, openCart,setCartOpened } = useCart() 
+	const [isAdded, setIsAdded] = useState(false)
+	const onClickPlus = () => {
+		setIsAdded(!isAdded)
+	}
+	const handleClickAddToCart = () => {
+		onClickPlus()
+	}
 
 	useEffect(() => {
 		getProductDetails(id);
 	}, []);
 	return (
 		<>
+			{cartOpened && <Basket />}
 			<Header />
 			<div className="details wrapper clear">
 				{productDetails ? (
@@ -49,12 +62,11 @@ const ProductDetails = () => {
 										</div>
 										<div>
 											<img
-												// onClick={() => handleClickAddToCart()}
+												onClick={() => handleClickAddToCart()}
 												className='plus'
 												width={26}
 												height={26}
-												// src={isAdded ? "/img/btn-checked.svg" : "/img/btn-plus.svg"}
-												src='/public/img/btn-plus.svg'
+												src={isAdded ? checkedSvg : plusSvg}
 												alt="Plus" />
 										</div>
 									</div>
