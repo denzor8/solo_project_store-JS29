@@ -1,4 +1,23 @@
 {
+  "register": [
+    {
+      "email": "vlad@asc",
+      "login": "denzor8",
+      "tel": "sldknv",
+      "password": "sldkvn",
+      "orders": [],
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "username": "vlad",
+      "age": "22",
+      "password": "123456",
+      "isAdmin": true,
+      "id": 4
+    }
+  ],
   "products": [
     {
       "name": "AIR JORDAN RETRO 2",

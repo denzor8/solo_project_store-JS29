@@ -15,9 +15,8 @@
 	// margin-right: 30px;
 	transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
 	margin-bottom: 10px;
-	&.content-containter {
-
-
+	cursor: pointer;
+	&.-containter {
 	}
 	&.-title {
 	}
@@ -25,14 +24,4 @@
 	}
 	&.-desc {
 	}
-}
-.details__basket{
-	&-ctn{
-		display: flex;
-		justify-content: flex-end;
-	}
-}
-.details__name-category{
-	display: flex;
-	justify-content: space-between;
 }

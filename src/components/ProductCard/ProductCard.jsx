@@ -11,7 +11,7 @@ const ProductCard = ({ item }) => {
   }
   const handleClickAddToCart = () => {
     onClickPlus()
-    addProductToCart(item.id)
+    addProductToCart(item)
   }
   const { addProductToCart, checkProductInCart } = useCart();
   return (
