@@ -3,12 +3,11 @@ import './Basket.scss'
 import { useCart } from '../../contexts/CartContextProvider'
 import { Button, TextField, Typography } from "@mui/material";
 const Basket = () => {
-  const { getCart, cart, deleteProductFromCart, closeCart, changeProductCount } = useCart()
+  const { getCart, cart, closeCart, deleteProductFromCart, changeProductCount } = useCart()
   console.log(cart);
   useEffect(() => {
     getCart();
   }, []);
-
   const cartCleaner = () => {
     localStorage.removeItem("cart");
     getCart();
@@ -55,7 +54,7 @@ const Basket = () => {
 
               </div>
               <img
-                onClick={deleteProductFromCart}
+                onClick={() => deleteProductFromCart(product.item.id)}
                 className="removeBtn"
                 src="/img/btn-remove.svg"
                 alt="Remove" />
