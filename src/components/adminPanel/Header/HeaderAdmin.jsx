@@ -43,7 +43,7 @@ const HeaderAdmin = () => {
             onClick={() => logout()}
             className='mr-20 cu-p'
           >
-            Admin
+            User
           </li>
         </ul>
       </header>
