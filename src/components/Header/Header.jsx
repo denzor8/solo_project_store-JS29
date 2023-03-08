@@ -125,8 +125,7 @@ const Header = () => {
                 <MenuItem key={setting.type} onClick={handleCloseUserMenu}>
                   <Typography
                     textAlign="center"
-                    onClick={() => navigate(setting.path)}
-                  >
+                    onClick={() => navigate(setting.path)}>
                     {setting.type}
                   </Typography>
                 </MenuItem>

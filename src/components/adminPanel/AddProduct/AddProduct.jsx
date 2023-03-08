@@ -96,6 +96,7 @@ const AddProduct = () => {
             >
               Save
             </button>
+            <a href="/admin">Вернуться назад</a>
           </fieldset>
         </form>
       </div>
